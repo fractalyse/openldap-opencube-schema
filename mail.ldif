@@ -1,0 +1,13 @@
+dn: cn=mailPostfix,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: mailPostfix
+olcAttributeTypes: ( 1.3.6.1.4.1.99999.2.2.20 NAME 'mailaccountquota' DESC 'Quota Mail' EQUALITY caseExactMatch SINGLE-VALUE SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.99999.2.2.21 NAME 'mailaccountactif' DESC 'Mail Actif' EQUALITY caseExactMatch SINGLE-VALUE SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.99999.2.2.40 NAME 'mailaliasfrom' DESC 'Mail From' EQUALITY caseExactMatch SINGLE-VALUE SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.99999.2.2.41 NAME 'mailaliasto' DESC 'Mail To' EQUALITY caseExactMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.99999.2.2.42 NAME 'mailaliasactif' DESC 'Alias Actif' EQUALITY caseExactMatch SINGLE-VALUE SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.99999.2.2.60 NAME 'maildomain' DESC 'Domaine' EQUALITY caseExactMatch SINGLE-VALUE SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.99999.2.2.61 NAME 'maildomainactif' DESC 'Domaine Actif' EQUALITY caseExactMatch SINGLE-VALUE SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcObjectClasses: ( 1.3.6.1.4.1.99999.2.1.20 NAME 'mailaccountPostfix' SUP TOP AUXILIARY MUST ( mailaccountquota $ mailaccountactif))
+olcObjectClasses: ( 1.3.6.1.4.1.99999.2.1.40 NAME 'mailaliasPostfix' SUP TOP STRUCTURAL MUST ( cn $ mailaliasfrom $ mailaliasto $ mailaliasactif))
+olcObjectClasses: ( 1.3.6.1.4.1.99999.2.1.60 NAME 'maildomainPostfix' SUP TOP AUXILIARY MUST ( maildomain $ maildomainactif))
